@@ -1,4 +1,4 @@
-FROM phusion/passenger-ruby21:0.9.10
+FROM circlci/nginx:latest
 
 EXPOSE 3000
 
