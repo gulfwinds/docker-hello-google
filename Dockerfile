@@ -1,4 +1,4 @@
-FROM circleci/nginx
+FROM nginx
 
 EXPOSE 80
 
