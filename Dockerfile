@@ -27,4 +27,4 @@ WORKDIR /home/app/webapp
 #RUN RAILS_ENV=production rake db:migrate
 
 # Run runit init system
-CMD ["/sbin/my_init"]
+#CMD ["/sbin/my_init"]
