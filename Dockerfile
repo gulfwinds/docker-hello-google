@@ -1,6 +1,6 @@
-FROM circleci/python
+FROM circleci/nginx
 
-EXPOSE 3000
+EXPOSE 80
 
 # Enable nginx/passenger
 RUN rm -f /etc/service/nginx/down
@@ -14,16 +14,16 @@ RUN rm -f /etc/service/nginx/down
 #RUN apt-get -y install sqlite3 libsqlite3-dev
 
 # Copy in app and config files
-ADD nginx/rails-env.conf /etc/nginx/main.d/rails-env.conf
+#ADD nginx/rails-env.conf /etc/nginx/main.d/rails-env.conf
 ADD nginx/webapp.conf /etc/nginx/sites-enabled/webapp.conf
 ADD . /home/app/webapp
 
 # Install gems
-WORKDIR /home/app/webapp
+#WORKDIR /home/app/webapp
 #RUN bundle install
 
 # Install "production" database (for demo purposes only)
-WORKDIR /home/app/webapp
+#WORKDIR /home/app/webapp
 #RUN RAILS_ENV=production rake db:migrate
 
 # Run runit init system
