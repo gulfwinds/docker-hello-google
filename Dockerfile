@@ -1,4 +1,4 @@
-FROM circlci/nginx:latest
+FROM circleci/nginx:latest
 
 EXPOSE 3000
 
