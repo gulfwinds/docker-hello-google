@@ -1,4 +1,4 @@
-FROM circleci/nginx:latest
+FROM circleci/python
 
 EXPOSE 3000
 
