@@ -2,6 +2,7 @@
 
 # Exit on any error
 #set -e
+sudo chown -R $USER /home/ubuntu/.kube/config
 sudo chown -R $USER /home/ubuntu/.config
 
 #sudo /opt/google-cloud-sdk/bin/gcloud docker push us.gcr.io/${PROJECT_NAME}/hello
