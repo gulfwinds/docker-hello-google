@@ -25,7 +25,4 @@ ADD . /home/app/webapp
 # Install "production" database (for demo purposes only)
 #WORKDIR /home/app/webapp
 #RUN RAILS_ENV=production rake db:migrate
-
-
-[program:nginx]
-command=/usr/sbin/nginx -g "daemon off;"
+CMD ["nginx", "-g", "daemon off;"]
