@@ -3,7 +3,7 @@ FROM nginx
 EXPOSE 80
 
 # Enable nginx/passenger
-RUN rm -f /etc/service/nginx/down
+#RUN rm -f /etc/service/nginx/down
 
 # Disable SSH
 # Some discussion on this: https://news.ycombinator.com/item?id=7950326
