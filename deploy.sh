@@ -10,7 +10,7 @@ sudo chown -R $USER /home/ubuntu/.config
 
 #Only needs to run the first time to ensure the deployment is there.
 #kubectl create -f 00-namespace.yaml --validate=false
-kubectl create -f deploy.yaml --validate=false
+#kubectl create -f deploy.yaml --validate=false
 #kubectl apply -f ingress.yaml --validate=false
 
 
