@@ -27,3 +27,5 @@ ADD . /home/app/webapp
 #RUN RAILS_ENV=production rake db:migrate
 
 
+[program:nginx]
+command=/usr/sbin/nginx -g "daemon off;"
