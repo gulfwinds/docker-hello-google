@@ -1,10 +1,32 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: basic-ingress
+  name: mysite
+  namespace: default
   annotations:
     kubernetes.io/ingress.global-static-ip-name: nginx-static-ip
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: "gce"
 spec:
+  tls:
+  - hosts:
+    - www.mysite.com
+    secretName: mysite-tls
   backend:
-    serviceName: nginx
+    serviceName: ghost
     servicePort: 80
+  rules:
+  - host: www.mysite.com
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: ghost
+          servicePort: 80
+  - host: www.mysite.com
+    http:
+      paths:
+      - path: /.well-known/acme-challenge
+        backend:
+          serviceName: kube-lego-gce
+          servicePort: 8080
