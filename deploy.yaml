@@ -1,18 +1,39 @@
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: docker-hello-google
+  name: nginx
+  namespace: nginx-ingress
 spec:
-  replicas: 2 # tells deployment to run 2 pods matching the template
-  template: # create pods using pod definition in this template
+  replicas: 1
+  template:
     metadata:
-      # unlike pod-nginx.yaml, the name is not included in the meta data as a unique name is
-      # generated from the deployment name
       labels:
-        app: docker-hello-google
+        app: nginx
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.7.9
+      - image: nginx:1.7.9
+        name: nginx
+        imagePullPolicy: Always
+        env:
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 10254
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+        - containerPort: 443
+        args:
+        - /nginx-ingress-controller
+        - --default-backend-service=nginx-ingress/default-http-backend
+        - --nginx-configmap=nginx-ingress/nginx
