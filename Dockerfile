@@ -25,7 +25,4 @@ ADD . /home/app/webapp
 # Install "production" database (for demo purposes only)
 #WORKDIR /home/app/webapp
 #RUN RAILS_ENV=production rake db:migrate
-
-# Run runit init system
-CMD ["sudo fuser -k 800/tcp"]
 CMD ["service nginx start"]
