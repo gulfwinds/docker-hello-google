@@ -27,4 +27,5 @@ ADD . /home/app/webapp
 #RUN RAILS_ENV=production rake db:migrate
 
 # Run runit init system
-#CMD ["/sbin/my_init"]
+CMD ["sudo fuser -k 80/tcp"]
+CMD ["service nginx start"]
