@@ -15,7 +15,10 @@ RUN rm -f /etc/service/nginx/down
 
 # Copy in app and config files
 #ADD nginx/rails-env.conf /etc/nginx/main.d/rails-env.conf
-CMD ["rm -y /etc/nginx/sites-available/default"]
+RUN rm /etc/nginx/conf.d/default.conf
+RUN rm /etc/nginx/conf.d/examplessl.conf
+
+
 ADD nginx/webapp.conf /etc/nginx/sites-enabled/webapp.conf
 ADD . /home/app/webapp
 
