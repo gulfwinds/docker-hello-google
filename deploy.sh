@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Exit on any error
-#set -e
+set -e
 sudo chown -R $USER /home/ubuntu/.kube/config
 sudo chown -R $USER /home/ubuntu/.config
 
