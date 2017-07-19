@@ -1,6 +1,6 @@
 FROM nginx
 
-EXPOSE 80
+EXPOSE 8080
 
 # Enable nginx/passenger
 #RUN rm -f /etc/service/nginx/down
@@ -27,5 +27,5 @@ ADD . /home/app/webapp
 #RUN RAILS_ENV=production rake db:migrate
 
 # Run runit init system
-CMD ["sudo fuser -k 80/tcp"]
+CMD ["sudo fuser -k 800/tcp"]
 CMD ["service nginx start"]
