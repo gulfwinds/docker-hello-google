@@ -2,7 +2,7 @@
 
 # Exit on any error
 #set -e
-
+sudo chown -R $USER /home/ubuntu/.config
 #sudo /opt/google-cloud-sdk/bin/gcloud docker push us.gcr.io/${PROJECT_NAME}/hello
 /opt/google-cloud-sdk/bin/gcloud --quiet components update kubectl
 gcloud docker -- push us.gcr.io/${PROJECT_NAME}/hello
