@@ -1,6 +1,6 @@
 FROM nginx
 
-EXPOSE 8080
+EXPOSE 80
 
 # Enable nginx/passenger
 RUN rm -f /etc/service/nginx/down
