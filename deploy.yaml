@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: nginx
+  name: docker-hello-google
   namespace: nginx-ingress
 spec:
   replicas: 1
