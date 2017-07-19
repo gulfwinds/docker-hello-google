@@ -10,6 +10,9 @@ sudo chown -R $USER /home/ubuntu/.config
 
 #Only needs to run the first time to ensure the deployment is there.
 #kubectl create -f deploy.yaml --validate=false
+kubectl apply -f ingress.yaml
+
+
 
 gcloud docker -- push us.gcr.io/${PROJECT_NAME}/hello
 sudo chown -R ubuntu:ubuntu /home/ubuntu/.kube
