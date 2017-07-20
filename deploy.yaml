@@ -23,6 +23,3 @@ spec:
         ports:
         - containerPort: 80
         - containerPort: 443
-        args:
-        - --default-backend-service=nginx-ingress/default-http-backend
-        - --nginx-configmap=nginx-ingress/nginx
