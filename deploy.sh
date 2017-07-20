@@ -9,8 +9,8 @@ sudo chown -R $USER /home/ubuntu/.config
 /opt/google-cloud-sdk/bin/gcloud --quiet components update kubectl
 
 #Only needs to run the first time to ensure the deployment is there.
-#kubectl create -f deploy.yaml --validate=false
-#kubectl apply -f ingress.yaml --validate=false
+kubectl create -f deploy.yml --validate=false
+kubectl apply -f loadbalancer.yml --validate=false
 
 
 gcloud docker -- push us.gcr.io/${PROJECT_NAME}/hello
