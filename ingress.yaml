@@ -10,4 +10,4 @@ spec:
   - port: 443
     name: https
   selector:
-    app: nginx
+    app: docker-hello-google
