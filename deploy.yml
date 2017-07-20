@@ -10,8 +10,8 @@ spec:
         app: docker-hello-google
     spec:
       containers:
-      - image: us.gcr.io/gwii-cloud/hello:$CIRCLE_SHA1
-        name: nginx
+      - image: us.gcr.io/gwii-cloud/hello:latest
+        name: docker-hello-google
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
