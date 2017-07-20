@@ -7,10 +7,10 @@ spec:
   template:
     metadata:
       labels:
-        app: nginx
+        app: docker-hello-google
     spec:
       containers:
-      - image: nginx:1.7.9
+      - image: us.gcr.io/gwii-cloud/hello:$CIRCLE_SHA1
         name: nginx
         imagePullPolicy: Always
         livenessProbe:
