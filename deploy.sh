@@ -15,4 +15,4 @@ kubectl apply -f ingress.yaml --validate=false
 
 gcloud docker -- push us.gcr.io/${PROJECT_NAME}/hello
 sudo chown -R ubuntu:ubuntu /home/ubuntu/.kube
-kubectl patch deployment -n nginx-ingress docker-hello-google -p '{"spec":{"template":{"spec":{"containers":[{"name":"docker-hello-google","image":"us.gcr.io/gwii-cloud/hello:'"$CIRCLE_SHA1"'"}]}}}}'
+kubectl patch deployment docker-hello-google -p '{"spec":{"template":{"spec":{"containers":[{"name":"docker-hello-google","image":"us.gcr.io/gwii-cloud/hello:'"$CIRCLE_SHA1"'"}]}}}}'
