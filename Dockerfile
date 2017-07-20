@@ -11,4 +11,4 @@ RUN rm -f /etc/service/nginx/down
 #RUN rm /etc/nginx/conf.d/default.conf
 
 #ADD nginx/webapp.conf /etc/nginx/sites-enabled/webapp.conf
-ADD . /usr/share/nginx/html
+ADD public /usr/share/nginx/html
