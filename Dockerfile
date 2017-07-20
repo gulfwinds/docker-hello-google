@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:latest
 
 EXPOSE 80
 
@@ -11,4 +11,5 @@ RUN rm /etc/nginx/conf.d/default.conf
 ADD nginx/webapp.conf /etc/nginx/sites-enabled/webapp.conf
 ADD . /home/app/webapp
 
+CMD ["nginx", "-g", "daemon off;"]
 
