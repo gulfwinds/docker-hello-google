@@ -3,7 +3,7 @@ FROM nginx:latest
 EXPOSE 80
 
 
-ADD public/index.html /usr/share/nginx/html/index.html
+ADD public /usr/share/nginx/html
 
 WORKDIR /usr/share/nginx/html
 RUN mkdir healthz
