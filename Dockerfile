@@ -6,7 +6,7 @@ EXPOSE 80
 ADD public/index.html /usr/share/nginx/html/index.html
 
 WORKDIR /usr/share/nginx/html
-mkdir healthz
+RUN mkdir healthz
 ADD healthz /usr/share/nginx/html/healthz
 
 
