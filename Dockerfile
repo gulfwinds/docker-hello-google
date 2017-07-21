@@ -1,11 +1,11 @@
 FROM node:8.1.4-alpine
 
 RUN mkdir /wwwroot
-RUN mkdis /wwwroot/heathz
+RUN mkdir /wwwroot/healthz
 
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 ADD public /wwwroot
-ADD heathz /wwwroot/heathz
+ADD healthz /wwwroot/healthz
 
 EXPOSE 80
