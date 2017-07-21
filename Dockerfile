@@ -17,4 +17,6 @@ RUN rm -f /etc/service/nginx/down
 # Expose ports
 EXPOSE 80
 
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
 
