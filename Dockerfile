@@ -14,6 +14,8 @@ ADD nginx /etc/nginx/
 # Enable nginx
 RUN rm -f /etc/service/nginx/down
 
+ADD public /usr/share/nginx/html
+
 # Expose ports
 EXPOSE 80
 
