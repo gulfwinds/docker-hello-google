@@ -8,7 +8,7 @@ FROM ubuntu:14.04
 MAINTAINER Gulf Winds
 
 # Download and Install Nginx
-RUN sudo apt-get update
+RUN sudo apt-get dist-upgrade
 RUN sudo apt-get install -y nginx  
 
 # Remove the default Nginx configuration file
