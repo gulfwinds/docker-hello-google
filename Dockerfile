@@ -8,11 +8,11 @@ FROM ubuntu:14.04
 MAINTAINER Gulf Winds
 
 # Download and Install Nginx
-RUN apt-get update
-RUN apt-get install -y nginx  
+RUN sudo apt-get update
+RUN sudo apt-get install -y nginx  
 
 # Remove the default Nginx configuration file
-RUN rm -v /etc/nginx/nginx.conf
+RUN sudo rm -v /etc/nginx/nginx.conf
 
 # Copy a configuration file from the current directory
 ADD nginx /etc/nginx/
