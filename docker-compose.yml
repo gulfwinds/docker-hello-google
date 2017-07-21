@@ -6,7 +6,5 @@ services:
       dockerfile: Dockerfile
     command: nginx -g "daemon off;"
     container_name: docker-hello-google
-    environment:
-      API_URL: http://localhost:8080
     ports:
       - "80:80"
