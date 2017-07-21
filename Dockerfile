@@ -2,6 +2,8 @@ FROM nginx:latest
 
 EXPOSE 80
 
+# Enable nginx
+RUN rm -f /etc/service/nginx/down
 
 ADD public /usr/share/nginx/html
 
@@ -15,5 +17,4 @@ RUN rm /etc/nginx/conf.d/default.conf
 
 ADD nginx/webapp.conf /etc/nginx/sites-enabled/webapp.conf
 
-# Enable nginx
-RUN rm -f /etc/service/nginx/down
+RUN service nginx restart
