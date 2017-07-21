@@ -13,7 +13,7 @@ spec:
       - image: nginx:latest
         name: nginx
         imagePullPolicy: Always
-		livenessProbe:
+	livenessProbe:
           httpGet:
             path: /healthz
             port: 10254
