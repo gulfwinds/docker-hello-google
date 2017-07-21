@@ -1,20 +1,26 @@
-FROM nginx:latest
+FROM ubuntu:trusty
+# Install Nginx.
+RUN \
+  add-apt-repository -y ppa:nginx/stable && \
+  apt-get update && \
+  apt-get install -y nginx && \
+  rm -rf /var/lib/apt/lists/* && \
+  echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
+  chown -R www-data:www-data /var/lib/nginx
 
+# Define mountable directories.
+VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
+
+ADD public /var/www/html
+
+# Define working directory.
+WORKDIR /etc/nginx
+
+# Define default command.
+CMD ["nginx"]
+
+# Expose ports.
 EXPOSE 80
-
-# Enable nginx
-RUN rm -f /etc/service/nginx/down
-
-ADD public /usr/share/nginx/html
-
-WORKDIR /usr/share/nginx/html
-RUN mkdir healthz
-ADD healthz /usr/share/nginx/html/healthz
+EXPOSE 443
 
 
-# Copy in app and config files
-RUN rm /etc/nginx/conf.d/default.conf
-
-ADD nginx/webapp.conf /etc/nginx/sites-enabled/webapp.conf
-
-RUN service nginx restart
