@@ -17,7 +17,7 @@ RUN rm -f /etc/service/nginx/down
 ADD public /usr/share/nginx/html
 
 # Expose ports
-EXPOSE 80
+#EXPOSE 80
 
 #RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
