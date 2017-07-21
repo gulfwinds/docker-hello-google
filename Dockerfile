@@ -6,7 +6,7 @@
 FROM nginx
 
 # Remove the default Nginx configuration file
-RUN sudo rm -v /etc/nginx/nginx.conf
+RUN rm -v /etc/nginx/nginx.conf
 
 # Copy a configuration file from the current directory
 ADD nginx /etc/nginx/
