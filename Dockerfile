@@ -19,5 +19,6 @@ ADD public /usr/share/nginx/html
 # Expose ports
 EXPOSE 80
 
-#RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+CMD ["nginx", "-g", "daemon off;"]
+
 
