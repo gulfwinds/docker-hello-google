@@ -3,13 +3,7 @@
 # Based on Ubuntu
 ############################################################
 # Set the base image to Ubuntu
-FROM ubuntu:14.04
-# File Author / Maintainer
-MAINTAINER Gulf Winds
-
-# Download and Install Nginx
-RUN sudo apt-get dist-upgrade
-RUN sudo apt-get install -y nginx  
+FROM nginx
 
 # Remove the default Nginx configuration file
 RUN sudo rm -v /etc/nginx/nginx.conf
