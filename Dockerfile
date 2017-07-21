@@ -1,26 +1,38 @@
-FROM ubuntu:trusty
-# Install Nginx.
-RUN \
-  add-apt-repository -y ppa:nginx/stable && \
-  apt-get update && \
-  apt-get install -y nginx && \
-  rm -rf /var/lib/apt/lists/* && \
-  echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
-  chown -R www-data:www-data /var/lib/nginx
+############################################################
+# Dockerfile to build Nginx Installed Containers
+# Based on Ubuntu
+############################################################
+# Set the base image to Ubuntu
+FROM ubuntu
+# File Author / Maintainer
+MAINTAINER Gulf Winds
 
-# Define mountable directories.
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
+# Install Nginx
 
-ADD public /var/www/html
+# Add application repository URL to the default sources
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ raring main universe" >> /etc/apt/sources.list
 
-# Define working directory.
-WORKDIR /etc/nginx
+# Update the repository
+RUN apt-get update
 
-# Define default command.
-CMD ["nginx"]
+# Install necessary tools
+RUN apt-get install -y nano wget dialog net-tools
 
-# Expose ports.
+# Download and Install Nginx
+RUN apt-get install -y nginx  
+
+# Remove the default Nginx configuration file
+RUN rm -v /etc/nginx/nginx.conf
+
+# Copy a configuration file from the current directory
+ADD nginx/nginx.conf /etc/nginx/
+
+# Append "daemon off;" to the beginning of the configuration
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
+# Expose ports
 EXPOSE 80
-EXPOSE 443
 
-
+# Set the default command to execute
+# when creating a new container
+CMD service nginx start
