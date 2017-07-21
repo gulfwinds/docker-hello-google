@@ -1,24 +1,13 @@
-############################################################
-# Dockerfile to build Nginx Installed Containers
-# Based on Ubuntu
-############################################################
-# Set the base image to Ubuntu
-FROM nginx
+FROM node:8.1.4-alpine
 
-# Remove the default Nginx configuration file
-RUN rm -v /etc/nginx/nginx.conf
+RUN mkdir /wwwroot
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-# Copy a configuration file from the current directory
-ADD nginx /etc/nginx/
+WORKDIR /wwwroot
+COPY public /wwwroot
+RUN npm install --loglevel warn
+RUN npm run build
+RUN npm prune --production --loglevel warn
 
-# Enable nginx
-RUN rm -f /etc/service/nginx/down
-
-ADD public /usr/share/nginx/html
-
-# Expose ports
+RUN apk add --no-cache nginx
 EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
-
-
