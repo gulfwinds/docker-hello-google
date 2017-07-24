@@ -10,3 +10,6 @@ ADD public /wwwroot
 ADD healthz /wwwroot/healthz
 
 EXPOSE 80
+
+ENTRYPOINT ["/sbin/docker-entrypoint.sh"]
+CMD ["/usr/sbin/nginx"]
