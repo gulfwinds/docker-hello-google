@@ -6,7 +6,7 @@ RUN mkdir /wwwroot/healthz
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 COPY docker-entrypoint.sh /etc/nginx/docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
+RUN chmod +x /etc/nginx/docker-entrypoint.sh
 
 ADD public /wwwroot
 ADD healthz /wwwroot/healthz
