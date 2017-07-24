@@ -13,5 +13,5 @@ ADD healthz /wwwroot/healthz
 
 EXPOSE 80
 
-ENTRYPOINT ["/etc/nginx/docker-entrypoint.sh"]
+ENTRYPOINT ["exec nginx -c /etc/nginx/nginx.conf -g "daemon off;""]
 CMD ["/usr/sbin/nginx"]
