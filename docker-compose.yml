@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    entrypoint: docker-entrypoint.sh
     command: nginx -g "daemon off;"
     container_name: docker-hello-google
     ports:
