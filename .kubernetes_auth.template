@@ -1,1 +1,1 @@
-{"User": "${KUBERNETES_USER}", "Password": "${KUBERNETES_PASS}"}
+#{"User": "${KUBERNETES_USER}", "Password": "${KUBERNETES_PASS}"}
